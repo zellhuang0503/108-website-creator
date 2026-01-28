@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --zen-bg: #F8F5F0;
+    --zen-text: #2D3436;
+    --zen-primary: #556B2F;
+    --zen-border: #D1CCC0;
+  }
+
+  body {
+    @apply bg-zen-bg text-zen-text font-sans antialiased;
+    background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+    background-blend-mode: multiply;
+  }
+
+  h1, h2, h3, h4, .serif {
+    @apply font-serif font-medium;
+  }
+}
+
+@layer components {
+  .zen-card {
+    @apply bg-white/60 backdrop-blur-sm border border-zen-border rounded-sm shadow-sm transition-all duration-500 hover:shadow-md hover:bg-white/80;
+  }
+
+  .zen-button-primary {
+    @apply bg-zen-primary text-zen-bg px-6 py-2 rounded-sm tracking-widest text-sm hover:opacity-90 transition-opacity active:scale-[0.98];
+  }
+
+  .zen-button-outline {
+    @apply border border-zen-border text-zen-muted px-6 py-2 rounded-sm tracking-widest text-sm hover:border-zen-primary hover:text-zen-primary transition-all;
+  }
+
+  .zen-stamp {
+    @apply border-2 border-zen-accent text-zen-accent px-2 py-0.5 text-xs font-bold uppercase tracking-tighter inline-block rotate-[-4deg] opacity-80;
+  }
+
+  .vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+}
+
+/* Custom Scrollbar for Zen vibe */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-zen-border rounded-full hover:bg-zen-muted transition-colors;
+}
